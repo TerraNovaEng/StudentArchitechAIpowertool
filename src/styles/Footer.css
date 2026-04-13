@@ -1,0 +1,39 @@
+.footer {
+  background-color: #282c34;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+  border-top: 2px solid #ff6b35;
+  font-size: 14px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-tagline {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-quote {
+  margin: 10px 0;
+  font-style: italic;
+  font-size: 13px;
+  color: #ff6b35;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 15px;
+  }
+
+  .footer-tagline,
+  .footer-quote {
+    font-size: 12px;
+  }
+}

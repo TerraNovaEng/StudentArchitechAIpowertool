@@ -1,0 +1,161 @@
+/* Rocket Showcase Styles */
+.rocket-showcase {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  text-align: center;
+}
+
+.rocket-showcase h2 {
+  font-size: 36px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  animation: title-glow 2s ease-in-out infinite;
+}
+
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.showcase-subtitle {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rocket-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: card-slide-up 0.6s ease-out backwards;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes card-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rocket-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.2);
+}
+
+.rocket-card.launched {
+  background: linear-gradient(135deg, #fff5e6, #ffe0b2);
+  border: 2px solid #FFD700;
+}
+
+.rocket-card.launched::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: launch-glow 1s ease-out;
+}
+
+@keyframes launch-glow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.rocket-container {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.launch-animation {
+  animation: rocket-launch 1.2s ease-out;
+}
+
+@keyframes rocket-launch {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.rocket-card h3 {
+  color: #1a1a2e;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.rocket-card p {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.workshop-launch-btn {
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #FF6347, #FF8C00);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.workshop-launch-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
+}
+
+.workshop-launch-btn:active {
+  transform: scale(0.98);
+}
+
+.workshop-launch-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.rocket-card.launched .workshop-launch-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+

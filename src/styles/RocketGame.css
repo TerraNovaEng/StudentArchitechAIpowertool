@@ -1,0 +1,336 @@
+/* Rocket Game Styles */
+.rocket-game-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #001a4d 0%, #0d4a8f 50%, #87ceeb 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  min-height: 70vh;
+}
+
+.game-canvas {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #001a4d 0%, #87ceeb 100%);
+  border-bottom: 3px solid #FF6347;
+  min-height: 400px;
+}
+
+.ground-line {
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, #8B4513 20%, #8B4513 80%, transparent 100%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+.rocket-game-wrapper {
+  position: absolute;
+  pointer-events: none;
+}
+
+.game-info {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFD700;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  z-index: 100;
+  border: 2px solid #FF8C00;
+  min-width: 200px;
+}
+
+.info-item {
+  margin: 8px 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.info-label {
+  color: #87ceeb;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.info-value {
+  color: #FFD700;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fuel-bar {
+  width: 120px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #FF8C00;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.fuel-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #FFC107);
+  transition: width 0.1s linear;
+}
+
+.game-controls {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 25px;
+  text-align: center;
+  border-top: 3px solid #FF8C00;
+}
+
+.control-info {
+  color: #87ceeb;
+  margin-bottom: 20px;
+}
+
+.control-info h3 {
+  color: #FFD700;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.control-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.instructions {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #FF8C00;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.instructions p {
+  margin: 8px 0;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+.instructions ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin: 5px 0;
+  color: #87CEEB;
+  font-size: 13px;
+}
+
+.instructions strong {
+  color: #FFD700;
+}
+
+.mobile-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.angle-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 100px;
+}
+
+.angle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.angle-btn:active {
+  transform: scale(0.95);
+}
+
+.thrust-btn {
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #FF6347, #FF8C00);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 150px;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+.thrust-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5);
+}
+
+.thrust-btn:active {
+  transform: scale(0.95);
+}
+
+.reset-button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.reset-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5);
+}
+
+.reset-button:active {
+  transform: scale(0.95);
+}
+
+.game-over-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #2a2a3e, #1a1a2e);
+  border: 3px solid #FFD700;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4);
+  animation: modal-popup 0.5s ease-out;
+  min-width: 400px;
+}
+
+@keyframes modal-popup {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game-over-modal h2 {
+  color: #FFD700;
+  font-size: 32px;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+}
+
+.result-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #FF6347;
+}
+
+.stat-label {
+  color: #87ceeb;
+  font-size: 14px;
+  text-align: left;
+}
+
+.stat-value {
+  color: #FFD700;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.modal-btn {
+  padding: 14px 30px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #FF6347, #FF8C00);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.modal-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .rocket-game-container {
+    min-height: auto;
+  }
+
+  .game-canvas {
+    min-height: 300px;
+  }
+
+  .game-info {
+    font-size: 12px;
+    padding: 10px 15px;
+    min-width: 160px;
+  }
+
+  .game-over-modal {
+    min-width: 90%;
+    max-width: 450px;
+  }
+
+  .mobile-controls {
+    flex-direction: column;
+  }
+
+  .angle-btn,
+  .thrust-btn {
+    width: 100%;
+  }
+}
+

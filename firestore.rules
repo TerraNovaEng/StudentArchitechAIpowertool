@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /workshops/{workshopId} {
+      // Allow anyone to read workshop data.
+      allow read: if true;
+      // Prevent client-side writes unless you later add auth checks.
+      allow write: if false;
+    }
+  }
+}

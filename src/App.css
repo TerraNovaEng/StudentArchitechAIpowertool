@@ -1,5 +1,36 @@
 .App {
+  background-color: #0b0d17; /* Space Black */
+  color: #f1f1f1;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background: linear-gradient(180deg, #1a1f35 0%, #0b0d17 100%);
+  padding: 3rem;
   text-align: center;
+  border-bottom: 2px solid #4a90e2; /* Rocket Blue */
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #4a90e2;
+}
+
+.card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #4a90e2;
+  box-shadow: 0 10px 20px rgba(74, 144, 226, 0.2);
 }
 
 .App-logo {

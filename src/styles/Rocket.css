@@ -1,0 +1,75 @@
+/* Rocket base styles */
+.rocket {
+  filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.5));
+  transition: all 0.1s ease;
+}
+
+.rocket-default {
+  animation: float 3s ease-in-out infinite;
+}
+
+.rocket-launch {
+  animation: rocketGlow 0.5s ease-out;
+}
+
+.rocket-game {
+  animation: rocketSpin 0.05s linear;
+}
+
+.rocket-particle {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+}
+
+.rocket-bg-1,
+.rocket-bg-2,
+.rocket-bg-3,
+.rocket-bg-4,
+.rocket-bg-5 {
+  animation: flight 20s linear infinite;
+}
+
+.rocket-card-0,
+.rocket-card-1,
+.rocket-card-2,
+.rocket-card-3 {
+  filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.8));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes rocketGlow {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(255, 69, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.5));
+  }
+}
+
+@keyframes rocketSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flight {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+  }
+}

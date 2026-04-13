@@ -1,0 +1,220 @@
+/* Rocket Animation Styles */
+.rocket-animation-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(180deg, #87ceeb 0%, #e0ffff 100%);
+  min-height: 600px;
+}
+
+.rocket-launch-area {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  min-height: 400px;
+}
+
+.particle-trail {
+  position: absolute;
+  width: 15px;
+  height: 60px;
+  left: 50%;
+  margin-left: -7.5px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 140, 0, 0.9) 0%, 
+    rgba(255, 69, 0, 0.8) 30%, 
+    rgba(255, 0, 0, 0.6) 60%, 
+    transparent 100%);
+  border-radius: 50% 50% 20% 20%;
+  filter: blur(1px);
+  animation: trail-fade 0.8s ease-out forwards;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+@keyframes trail-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(50px) rotate(10deg);
+  }
+}
+
+.confetti-explosion {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #FFD700, #FF6347, #87CEEB);
+  border-radius: 50%;
+  animation: confetti-fall 2s ease-out forwards;
+}
+
+.confetti-piece:nth-child(1) {
+  left: 30px;
+  top: 0px;
+  background: #FFD700;
+  animation-delay: 0s;
+  animation: confetti-fall-1 2s ease-out forwards;
+}
+.confetti-piece:nth-child(2) {
+  left: 40px;
+  top: 0px;
+  background: #FF6347;
+  animation-delay: 0.05s;
+  animation: confetti-fall-2 2s ease-out forwards;
+}
+.confetti-piece:nth-child(3) {
+  left: 20px;
+  top: 0px;
+  background: #87CEEB;
+  animation-delay: 0.1s;
+  animation: confetti-fall-3 2s ease-out forwards;
+}
+
+@keyframes confetti-fall-1 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(80px) translateY(150px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-fall-2 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-80px) translateY(150px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-fall-3 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(40px) translateY(200px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.animation-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.launch-instructions {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #FF8C00;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.launch-instructions h3 {
+  color: #FF6347;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.launch-instructions p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.launch-button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #FF6347, #FF8C00);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.launch-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+}
+
+.launch-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.launch-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(255, 69, 0, 0.4);
+}
+
+.launch-count-text {
+  color: #1a1a2e;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .rocket-animation-container {
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .rocket-launch-area {
+    min-height: 300px;
+    margin-bottom: 20px;
+  }
+
+  .launch-button {
+    font-size: 16px;
+    padding: 12px 30px;
+  }
+}
